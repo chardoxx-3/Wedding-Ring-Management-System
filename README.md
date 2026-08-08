@@ -1,60 +1,177 @@
-# CodeIgniter 4 Framework
+﻿# 💍 Wedding Ring Reservation System
 
-## What is CodeIgniter?
+A web-based **Wedding Ring Reservation System** built with **PHP**, **CodeIgniter 4**, and **MySQL/MariaDB**. This application lets customers browse custom rings, make reservations, complete payments, and view receipts. Administrators can manage ring inventory, reservation status, and generate reports from a centralized system.
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](https://codeigniter.com).
+## 🚀 Project Overview
 
-This repository holds the distributable version of the framework.
-It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+The application follows the **Model-View-Controller (MVC)** architecture provided by CodeIgniter 4. It supports ring browsing, reservation checkout, payment processing, customer order history, and admin management for a wedding ring store.
 
-More information about the plans for version 4 can be found in [CodeIgniter 4](https://forum.codeigniter.com/forumdisplay.php?fid=28) on the forums.
+## 👥 User Roles
 
-You can read the [user guide](https://codeigniter.com/user_guide/)
-corresponding to the latest version of the framework.
+### 1. Administrator
 
-## Important Change with index.php
+Administrators can:
 
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
+* View the admin dashboard with ring and reservation summaries.
+* Manage ring inventory with create, edit, status, and delete actions.
+* View and update reservation statuses.
+* Review payments and mark orders as paid.
+* Print reports and dashboard summaries.
+* Manage profile details.
 
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
+### 2. Customer
 
-**Please** read the user guide for a better explanation of how CI4 works!
+Customers can:
 
-## Repository Management
+* Register, log in, and log out.
+* Browse available wedding and engagement rings.
+* View detailed ring information.
+* Place reservations with size and customization notes.
+* Complete reservation payments.
+* View reservation history and print receipts.
+* Update profile information.
 
-We use GitHub issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
+## 💎 Key Features
 
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
+| **Feature**                | **Description**                                                                      |
+| -------------------------- | ------------------------------------------------------------------------------------ |
+| **Ring Catalog**           | Browse available rings and view product details.                                     |
+| **Ring Inventory**         | Admin can add, edit, update status, and remove rings from the catalog.              |
+| **Reservation Checkout**   | Customers can reserve rings with size and customization options.                    |
+| **Payment Management**     | Record payments and update reservation payment status.                              |
+| **Reservation History**    | Customers can track past reservations and view receipts.                            |
+| **Admin Reservation Tools**| Admins can review all reservations and update their status.                         |
+| **Dashboard & Reporting**  | Admin dashboard displays ring and reservation summaries with printable reports.     |
+| **Authentication**         | Login, registration, password hashing, and role-based access.                       |
+| **Profile Management**     | Users can update their profile information.                                         |
 
-## Contributing
+## 🏗️ System Architecture
 
-We welcome contributions from the community.
+* **Controllers** – Application logic is handled in `app/Controllers`, with admin controllers under `app/Controllers/Admin`.
+* **Models** – Data operations are managed by `app/Models`, including `RingModel`, `ReservationModel`, `PaymentModel`, and `UserModel`.
+* **Views** – UI templates are stored in `app/Views`, including `customer`, `admin`, and `auth` views.
+* **Routes** – URL routing is configured in `app/Config/Routes.php`.
+* **Public assets** – Served from `public/`, with ring image uploads stored in `public/uploads/rings`.
 
-Please read the [*Contributing to CodeIgniter*](https://github.com/codeigniter4/CodeIgniter4/blob/develop/CONTRIBUTING.md) section in the development repository.
+## 🗄️ Database
 
-## Server Requirements
+This project uses **MySQL/MariaDB** and includes the SQL dump:
 
-PHP version 8.1 or higher is required, with the following extensions installed:
+* `wedding_ring_db.sql`
 
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
+Key tables include:
 
-> [!WARNING]
-> - The end of life date for PHP 7.4 was November 28, 2022.
-> - The end of life date for PHP 8.0 was November 26, 2023.
-> - If you are still using PHP 7.4 or 8.0, you should upgrade immediately.
-> - The end of life date for PHP 8.1 will be December 31, 2025.
+* `users`
+* `rings`
+* `reservations`
+* `payments`
 
-Additionally, make sure that the following extensions are enabled in your PHP:
+The SQL dump includes example admin and customer accounts, sample rings, reservations, and payment records.
 
-- json (enabled by default - don't turn it off)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php) if you plan to use MySQL
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
+## 🔐 Demo Credentials
+
+Use the seeded accounts from the database file or register a new user.
+
+| **Account**  | **Credentials** |
+| ------------ | --------------- |
+| **Admin**    | `admin@gmail.com` / seeded password from SQL |
+| **Customer** | `customer@gmail.com` / seeded password from SQL |
+
+> **Note:** If the seeded password is not available, register a new account from the login page.
+
+## 🛠️ Technologies Used
+
+* **PHP 8.1+**
+* **CodeIgniter 4**
+* **MySQL / MariaDB**
+* **HTML**
+* **CSS**
+* **JavaScript**
+* **Composer**
+* **phpMyAdmin**
+
+## 💻 How to Install & Run
+
+### 1. Install Requirements
+
+Before running the project, install:
+
+* **PHP 8.1 or higher**
+* **Composer**
+* **MySQL / MariaDB**
+* **XAMPP**, **WAMP**, or another PHP development environment
+
+### 2. Clone the Project
+
+```bash
+git clone https://github.com/chardoxx-3/Wedding-Ring-Management-System.git
+cd Wedding-Ring-Management-System
+```
+
+### 3. Install Dependencies
+
+```bash
+composer install
+```
+
+### 4. Configure the Environment
+
+Copy the sample environment file:
+
+```bash
+copy env .env
+```
+
+Open `.env` and update your database settings:
+
+```env
+database.default.hostname = localhost
+database.default.database = wedding_ring_db
+database.default.username = root
+database.default.password = 
+database.default.DBDriver = MySQLi
+database.default.port = 3306
+```
+
+Adjust the database name, username, and password for your local setup.
+
+### 5. Create the Database
+
+Create the database in phpMyAdmin or MySQL:
+
+```text
+wedding_ring_db
+```
+
+Import the SQL file:
+
+```text
+wedding_ring_db.sql
+```
+
+### 6. Start the Application
+
+```bash
+php spark serve
+```
+
+Open the application at:
+
+```text
+http://localhost:8080
+```
+
+### 7. Login or Register
+
+Use the seeded admin/customer account or register a new user from the login page.
+
+## 🔄 Application Workflow
+
+**Login → Browse Rings → Reserve Ring → Complete Payment → View Reservation History → Admin Manage Rings/Reservations → Generate Reports**
+
+## 🎯 Project Purpose
+
+This project demonstrates practical skills in **web development**, **MVC architecture**, **authentication**, **CRUD operations**, **database design**, **transactional workflows**, and **admin/customer role management**.
+
+### Login
+![Login](screenshots/login.png)
